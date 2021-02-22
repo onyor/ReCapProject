@@ -27,12 +27,33 @@ namespace Buisness.Concrete
             return new SuccessResult("Araba Listeye Eklendi!");
         }
 
+        public IResult Delete(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IDataResult<List<Car>> GetAll()
+        {
+            if (DateTime.Now.Hour == 22)
+            {
+                return new ErrorDataResult<List<Car>>("Sistem Bakımda");
+            }
+
+            return new SuccessDataResult<List<Car>>(_carDal.GetAll(),"Tüm ürünler listelendi!");
+            
+        }
+
         public IDataResult<List<Car>> GetCarsByBrandId(int id)
         {
             throw new NotImplementedException();
         }
 
         public IDataResult<List<Car>> GetCarsByColorId(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IResult Update(Car car)
         {
             throw new NotImplementedException();
         }

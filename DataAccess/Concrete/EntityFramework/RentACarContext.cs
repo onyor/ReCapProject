@@ -1,4 +1,5 @@
 ﻿using Entities.Concrete;
+using Entities.Tables;
 using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
@@ -10,7 +11,7 @@ namespace DataAccess.Concrete.EntityFramework
     {
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-8KUDCNR;Database=RentACar;User Id=sa;Password=123");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-8KUDCNR;Database=RentACarContext;User Id=sa;Password=123");
         }
 
         public DbSet<Brand> brands { get; set; }
