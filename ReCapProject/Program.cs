@@ -33,7 +33,7 @@ namespace ReCapProject
         private static void AddCars()
         {
             CarManager carManager = new CarManager(new EfCarDal());
-            Car car = new Car { BrandId = 6, ColorId = 7, DailyPrice = 250, ModelYear = 2017, Description = "En konforlu aracamız, bakımı yapılmış ve temiz." };
+            Car car = new Car {  DailyPrice = 250, ModelYear = 2017, Description = "En konforlu aracamız, bakımı yapılmış ve temiz." };
             var result = carManager.Add(car);
 
             if (result.Success)

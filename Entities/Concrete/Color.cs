@@ -11,5 +11,6 @@ namespace Entities.Concrete
     {
         public int ColorId { get; set; }
         public string ColorName { get; set; }
+        public virtual Car Car { get; set; }
     }
 }

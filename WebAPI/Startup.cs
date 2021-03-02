@@ -31,7 +31,12 @@ namespace WebAPI
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllers();
+
+            services.AddDbContext<RentACarContext>(options =>
+                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+            );
             services.AddSingleton<ICarService, CarManager>();
+
             services.AddSingleton<ICarDal, EfCarDal>();
 
         }

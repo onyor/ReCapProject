@@ -8,6 +8,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using AutoMapper;
 
 namespace WebAPI.Controllers
 {
@@ -15,10 +16,12 @@ namespace WebAPI.Controllers
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private ICarService _carService;
+        private readonly IMapper _mapper;
+        private readonly ICarService _carService;
 
-        public CarsController(ICarService carService)
+        public CarsController(IMapper mapper, ICarService carService)
         {
+            _mapper = mapper;
             _carService = carService;
         }
 
