@@ -1,5 +1,6 @@
 using Buisness.Abstract;
 using Buisness.Concrete;
+using DataAccess;
 using DataAccess.Abstract;
 using DataAccess.Concrete.EntityFramework;
 using Microsoft.AspNetCore.Builder;
@@ -33,11 +34,13 @@ namespace WebAPI
             services.AddControllers();
 
             services.AddDbContext<RentACarContext>(options =>
-                options.UseSqlServer(Configuration.GetConnectionString("DefaultConnection"))
+                options.UseSqlServer(Configuration.GetConnectionString("RentACarContext"))
             );
+
             services.AddSingleton<ICarService, CarManager>();
 
             services.AddSingleton<ICarDal, EfCarDal>();
+            services.AddInfrastructure(Configuration);
 
         }
 

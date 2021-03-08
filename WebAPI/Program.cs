@@ -27,7 +27,6 @@ namespace WebAPI
             using (var scope = host.Services.CreateScope())
             {
                 var services = scope.ServiceProvider;
-                var loggerFactory = services.GetRequiredService<ILoggerFactory>();
                 try
                 {
                     var context = services.GetRequiredService<RentACarContext>();
@@ -44,24 +43,10 @@ namespace WebAPI
                 }
                 catch (Exception ex)
                 {
-                    var logger = loggerFactory.CreateLogger<Program>();
-                    logger.LogError(ex, "An error occured during migration");
+
                 }
             }
-
-            try
-            {
-                // Log.Information("Megasells uygulamasi baslatiliyor...");
-                host.Run();
-            }
-            catch (Exception)
-            {
-                // Log.Fatal(ex, "Megasells uygulamasi duzgunce baslatilamadi!");
-            }
-            finally
-            {
-                // Log.CloseAndFlush();
-            }
+            host.Run();
         }
 
         public static IHostBuilder CreateHostBuilder(string[] args) =>
