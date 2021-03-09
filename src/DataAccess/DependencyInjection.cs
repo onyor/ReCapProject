@@ -15,8 +15,6 @@ namespace DataAccess
         //        options.UseSqlServer(configuration.GetConnectionString("RentACarContext"))
         //    );
             
-        //    //services.AddValidatorsFromAssembly(Assembly.GetExecutingAssembly());
-
         //    return services;
         //}
     }

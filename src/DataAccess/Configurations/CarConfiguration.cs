@@ -16,8 +16,7 @@ namespace DataAccess.Configurations
 
             //builder.Property(x => x.Brand).IsRequired();
             //builder.Property(x => x.Color).IsRequired();
-            builder.Property(x => x.ModelYear).HasMaxLength(100).IsRequired();
-            builder.Property(x => x.DailyPrice).HasMaxLength(100).IsRequired();
+
             builder.Property(x => x.Description).HasMaxLength(100).IsRequired();
         }
     }
