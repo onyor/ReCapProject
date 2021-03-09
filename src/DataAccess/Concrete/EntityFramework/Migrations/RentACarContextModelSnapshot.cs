@@ -5,7 +5,7 @@ using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
-namespace DataAccess.Migrations
+namespace DataAccess.Concrete.EntityFramework.Migrations
 {
     [DbContext(typeof(RentACarContext))]
     partial class RentACarContextModelSnapshot : ModelSnapshot
@@ -26,11 +26,13 @@ namespace DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("BrandName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("BrandId");
 
-                    b.ToTable("Brands");
+                    b.ToTable("Brandasdasd");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Car", b =>
@@ -50,14 +52,16 @@ namespace DataAccess.Migrations
                         .HasColumnType("int");
 
                     b.Property<string>("Description")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.Property<int>("ModelYear")
                         .HasColumnType("int");
 
                     b.HasKey("Id");
 
-                    b.ToTable("Cars");
+                    b.ToTable("Carasdasd");
                 });
 
             modelBuilder.Entity("Entities.Concrete.Color", b =>
@@ -68,11 +72,13 @@ namespace DataAccess.Migrations
                         .HasAnnotation("SqlServer:ValueGenerationStrategy", SqlServerValueGenerationStrategy.IdentityColumn);
 
                     b.Property<string>("ColorName")
-                        .HasColumnType("nvarchar(max)");
+                        .IsRequired()
+                        .HasMaxLength(100)
+                        .HasColumnType("nvarchar(100)");
 
                     b.HasKey("ColorId");
 
-                    b.ToTable("Colors");
+                    b.ToTable("Colorasdasd");
                 });
 #pragma warning restore 612, 618
         }

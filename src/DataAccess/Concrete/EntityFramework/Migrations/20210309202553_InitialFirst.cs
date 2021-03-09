@@ -1,26 +1,26 @@
 ﻿using Microsoft.EntityFrameworkCore.Migrations;
 
-namespace DataAccess.Migrations
+namespace DataAccess.Concrete.EntityFramework.Migrations
 {
     public partial class InitialFirst : Migration
     {
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "Brands",
+                name: "Brandasdasd",
                 columns: table => new
                 {
                     BrandId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    BrandName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    BrandName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Brands", x => x.BrandId);
+                    table.PrimaryKey("PK_Brandasdasd", x => x.BrandId);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Cars",
+                name: "Carasdasd",
                 columns: table => new
                 {
                     Id = table.Column<int>(type: "int", nullable: false)
@@ -29,37 +29,37 @@ namespace DataAccess.Migrations
                     BrandId = table.Column<int>(type: "int", nullable: false),
                     ModelYear = table.Column<int>(type: "int", nullable: false),
                     DailyPrice = table.Column<int>(type: "int", nullable: false),
-                    Description = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    Description = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Cars", x => x.Id);
+                    table.PrimaryKey("PK_Carasdasd", x => x.Id);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Colors",
+                name: "Colorasdasd",
                 columns: table => new
                 {
                     ColorId = table.Column<int>(type: "int", nullable: false)
                         .Annotation("SqlServer:Identity", "1, 1"),
-                    ColorName = table.Column<string>(type: "nvarchar(max)", nullable: true)
+                    ColorName = table.Column<string>(type: "nvarchar(100)", maxLength: 100, nullable: false)
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Colors", x => x.ColorId);
+                    table.PrimaryKey("PK_Colorasdasd", x => x.ColorId);
                 });
         }
 
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Brands");
+                name: "Brandasdasd");
 
             migrationBuilder.DropTable(
-                name: "Cars");
+                name: "Carasdasd");
 
             migrationBuilder.DropTable(
-                name: "Colors");
+                name: "Colorasdasd");
         }
     }
 }

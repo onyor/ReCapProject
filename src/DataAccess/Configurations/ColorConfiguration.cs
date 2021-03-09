@@ -11,7 +11,7 @@ namespace DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Color> builder)
         {
-            builder.ToTable("Color");
+            builder.ToTable("Colorasdasd");
             builder.HasKey(x => x.ColorId);
 
             builder.Property(x => x.ColorName).HasMaxLength(100).IsRequired();

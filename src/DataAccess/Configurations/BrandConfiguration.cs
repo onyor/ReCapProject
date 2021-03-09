@@ -11,7 +11,7 @@ namespace DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Brand> builder)
         {
-            builder.ToTable("Brand");
+            builder.ToTable("Brandasdasd");
             builder.HasKey(x => x.BrandId);
 
             builder.Property(x => x.BrandName).HasMaxLength(100).IsRequired();

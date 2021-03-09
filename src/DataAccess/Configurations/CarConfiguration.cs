@@ -11,7 +11,7 @@ namespace DataAccess.Configurations
     {
         public void Configure(EntityTypeBuilder<Car> builder) 
         {
-            builder.ToTable("Car");
+            builder.ToTable("Carasdasd");
             builder.HasKey(x => x.Id);
 
             //builder.Property(x => x.Brand).IsRequired();

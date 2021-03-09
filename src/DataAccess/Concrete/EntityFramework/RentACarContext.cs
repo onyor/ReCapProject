@@ -19,12 +19,14 @@ namespace DataAccess.Concrete.EntityFramework
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer(@"Server=DESKTOP-M5HS3EJ;Database=RentACarDB;User Id=sa;Password=123");
+
+            //optionsBuilder.UseSqlServer(@"Server=DESKTOP-M5HS3EJ;Database=RentACarDB;User Id=sa;Password=123");
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-8KUDCNR;Database=RentACarDB;User Id=sa;Password=123");
         }
 
         public RentACarContext()
         {
-            
+
         }
         public virtual DbSet<Brand> Brands { get; set; }
         public virtual DbSet<Car> Cars { get; set; }
@@ -33,7 +35,6 @@ namespace DataAccess.Concrete.EntityFramework
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
-
             base.OnModelCreating(builder);
         }
     }
