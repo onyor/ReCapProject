@@ -1,27 +1,18 @@
 ﻿using Buisness.Abstract;
-using Buisness.Concrete;
-using DataAccess.Concrete.EntityFramework;
 using Entities.Concrete;
-using Microsoft.AspNetCore.Http;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using AutoMapper;
 
 namespace WebAPI.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("[controller]")]
     [ApiController]
     public class CarsController : ControllerBase
     {
-        private readonly IMapper _mapper;
         private readonly ICarService _carService;
 
-        public CarsController(IMapper mapper, ICarService carService)
+        public CarsController(ICarService carService)
         {
-            _mapper = mapper;
             _carService = carService;
         }
 
@@ -36,15 +27,14 @@ namespace WebAPI.Controllers
             return BadRequest(result.Message);
         }
 
-        [HttpGet("getall")]
+        [HttpGet]
         public IActionResult GetAll()
         {
             var result = _carService.GetAll();
             if (result.Success)
             {
                 return Ok(result.Data);
-            }
-            return BadRequest(result.Message);
+            } return BadRequest(result.Message);
         }
     }
 }

@@ -10,27 +10,27 @@ namespace DataAccess.Concrete.EntityFramework
 {
     public class RentACarContext : DbContext
     {
-        public RentACarContext(
-            DbContextOptions<RentACarContext> options
-        ) : base(options)
+        //public RentACarContext(
+        //    DbContextOptions<RentACarContext> options
+        //) : base(options)
+        //{
+
+        //}
+
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-
-        }
-
-        public RentACarContext()
-        {
-
+            optionsBuilder.UseSqlServer(@"Server=DESKTOP-M5HS3EJ;Database=RentACarContext;User Id=sa;Password=123");
         }
 
         public virtual DbSet<Brand> brands { get; set; }
         public virtual DbSet<Car> cars { get; set; }
         public virtual DbSet<Color> colors { get; set; }
 
-        protected override void OnModelCreating(ModelBuilder builder)
-        {
-            builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
+        //protected override void OnModelCreating(ModelBuilder builder)
+        //{
+        //    builder.ApplyConfigurationsFromAssembly(Assembly.GetExecutingAssembly());
 
-            base.OnModelCreating(builder);
-        }
+        //    base.OnModelCreating(builder);
+        //}
     }
 }
